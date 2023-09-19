@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS tipTracker_db;
+CREATE DATABASE tipTracker_db;
