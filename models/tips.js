@@ -25,6 +25,13 @@ Tip.init(
         isDecimal: true,
       },
     },
+    job_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'job',
+        key: 'id',
+      },
+    }
   },
   {
     sequelize,
