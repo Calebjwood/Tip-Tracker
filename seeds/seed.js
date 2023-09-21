@@ -1,10 +1,10 @@
 const sequelize = require("../config/connection");
-const User = require("../models/User");
-const Job = require("../models/job");
 
+const {User, Job, Tip} = require('../models')
 
 const userData = require("./userData.json");
 const jobData = require("./jobData.json");
+const tipData = require('./tipsData.json')
 
 
 const seedDataBase = async () => {
@@ -15,14 +15,23 @@ const seedDataBase = async () => {
     returning: true,
   });
 
-  for (const job of jobData) {
-    await Job.create({
-      ...job,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
+  const jobs = await Job.bulkCreate(jobData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  const tips = await Tip.bulkCreate(tipData, {
+    individualHooks: true,
+    returning: true,
+  });
+
 
   process.exit(0);
-};
+  
+}
+
+  
+
+
 
 seedDataBase();

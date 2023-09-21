@@ -1,0 +1,17 @@
+[
+    {
+        "tips": 25.5,
+        "hours": 10,
+        "job_id": 1
+    },
+    {
+        "tips": 20.0,
+        "hours": 8,
+        "job_id": 2
+    },
+    {
+        "tips": 70.2,
+        "hours": 6,
+        "job_id": 3
+    }
+]

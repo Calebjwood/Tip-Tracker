@@ -12,7 +12,7 @@ Tip.init(
       autoIncrement: true,
     },
     hours: {
-      type: DataTypes.DECIMAL(2,2),
+      type: DataTypes.DECIMAL(4,2),
       allowNull: false,
       validate: {
         isDecimal: true,
