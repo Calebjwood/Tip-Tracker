@@ -1,7 +1,6 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
  
-
   const email = document.querySelector('#login-email').value.trim();
   const password = document.querySelector('#login-pwd').value.trim();
   
@@ -20,7 +19,6 @@ const loginFormHandler = async (event) => {
   }
 };
 
-const loginBtn = document.getElementById('login-btn')
-
+const loginBtn = document.getElementById('login-btn');
 
 loginBtn.addEventListener('click', loginFormHandler);
