@@ -4,18 +4,25 @@ function calcWageByHour (hours, wagePerhour) {
     return total;  
 }
 
+function calcTotal (hours, wagePerhour, tips) {
+        return calcWageByHour(parseFloat(hours), parseFloat(wagePerhour)) + parseFloat(tips); 
+}
+
+
+
+
+
+
+
+
+
+
+
 /**
  * sum all tips
  * @param {array} tips 
  * @return {number}
  */
-function totalTips (tips) {
-    let total = 0; 
-    for(let i = 0; i < tips.length; i++) {
-        total += tips[i];
-    }
-    return total; 
-}
 
 /**
  * caculates total money earned for the day
@@ -24,10 +31,8 @@ function totalTips (tips) {
  * @param {number} tips 
  * @returns {number}
  */
-function totalMoney (hours, wagePerhour, tips) {
-return calcWageByHour(hours, wagePerhour) + totalTips(tips);
-}
 
 
 
-module.exports = {calcWageByHour, totalTips, totalMoney};
+
+module.exports = {calcWageByHour, calcTotal};

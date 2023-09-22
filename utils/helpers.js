@@ -7,5 +7,8 @@ module.exports = {
     // format large numbers with commas
     return parseInt(amount).toLocaleString();
   },
+  calc_total: (hours, wage, tips) => {
+    return (parseFloat(hours) * parseFloat(wage)) + parseFloat(tips)
+  }
 
 };
