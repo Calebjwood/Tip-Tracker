@@ -32,17 +32,6 @@ body {
     font-weight: 600;
 }
 
-#song-search {
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    font-weight: 600;
-}
-
-#search-btn {
-    background: linear-gradient(rgb(255, 0, 0), rgb(0, 0, 0));
-    font-weight: 600;
-}
-
 .button:hover {
     color: white;
 }
