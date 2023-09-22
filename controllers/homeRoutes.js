@@ -1,4 +1,11 @@
 const router = require('express').Router();
+// GET route to render the homepage
+router.get('/', (req, res) => {
+  
+  res.render('homepage', {
+    logged_in: req.session.logged_in
+  })
+})
 
 // GET route to render login page
 router.get('/login', (req, res) => {
