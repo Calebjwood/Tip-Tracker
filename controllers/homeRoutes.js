@@ -29,6 +29,7 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+// GET route to render job page
 router.get('/job/:id', withAuth, async (req, res) => {
   try {
     const jobData = await Job.findByPk(req.params.id, {
