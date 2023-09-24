@@ -1,0 +1,15 @@
+<div class="container-fluid d-flex justify-content-center gap-5 mt-4">
+  <button type="button" class="btn btn-primary">Add Tips</button>
+  <button type="button" class="btn btn-info">Edit Tips</button>
+</div>
+
+{{#each tips as |tip|}}
+<div class="container-fluid">
+  <div class="border border-secondary">
+    <h3>Hours Worked: {{tip.hours}}</h3>
+    <h3>Tips Earned: {{tip.tips}}</h3>
+  </div>
+</div>
+{{/each}}
+
+<script src="/js/jobPage.js"></script>
