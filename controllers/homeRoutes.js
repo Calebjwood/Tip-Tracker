@@ -53,7 +53,9 @@ router.get('/job/:id', withAuth, async (req, res) => {
 //GET to render addTip page 
 router.get('/addTip', withAuth, async (req, res) => {
    try {
-    res.render('addTip')
+    res.render('addTip', {
+      job_id: req.session.job_id
+    })
    } catch (err) {
     res.status(500).json(err);
    }
@@ -63,6 +65,7 @@ router.get('/addTip', withAuth, async (req, res) => {
 router.get('/updateTip/:id', withAuth , async (req, res) => {
   try {
     res.render('updateTip', {
+      job_id: req.session.job_id,
       logged_in: true
     })
   } catch (err) {
