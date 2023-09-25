@@ -21,11 +21,11 @@ router.get('/all', async (req, res) => {
 });
 
 // POST route to create tips
-router.post('/:id', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const newTips = await Tip.create({
             ...req.body,
-            job_id: req.params.id,
+            job_id: req.session.job_id,
         });
 
         res.status(200).json(newTips);

@@ -1,11 +1,12 @@
 <div class="container-fluid d-flex justify-content-center gap-5 mt-4">
-  <button type="button" class="btn btn-primary">Add Tips</button>
-  <button type="button" class="btn btn-info">Edit Tips</button>
+  <a href="/addTip" class="btn btn-primary">Add tips</a>
+  <a href="/updateTip" class="btn btn-info">Edit Tips</a>
 </div>
 
 {{#each tips as |tip|}}
 <div class="container-fluid">
   <div class="border border-secondary">
+    <a href="/updateTip/{{tip.id}}" class="fs-2 text-decoration-none text-black">{{format_date tip.date}}</a>
     <h3>Hours Worked: {{tip.hours}}</h3>
     <h3>Tips Earned: {{tip.tips}}</h3>
   </div>

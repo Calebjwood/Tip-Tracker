@@ -25,6 +25,11 @@ Tip.init(
         isDecimal: true,
       },
     },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
     job_id: {
       type: DataTypes.INTEGER,
       references: {

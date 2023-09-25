@@ -37,6 +37,9 @@ router.get('/job/:id', withAuth, async (req, res) => {
     });
 
     const job = jobData.get({ plain: true });
+    req.session.save(() => {
+      req.session.job_id = req.params.id
+    })
 
     res.render('job', {
       ...job,
@@ -46,6 +49,14 @@ router.get('/job/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/addTip', withAuth, async (req, res) => {
+   try {
+    res.render('addTip')
+   } catch (err) {
+    res.status(500).json(err);
+   }
+})
 
 // GET route to render login page
 router.get('/login', (req, res) => {
