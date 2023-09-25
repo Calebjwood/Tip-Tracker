@@ -50,12 +50,24 @@ router.get('/job/:id', withAuth, async (req, res) => {
   }
 });
 
+//GET to render addTip page 
 router.get('/addTip', withAuth, async (req, res) => {
    try {
     res.render('addTip')
    } catch (err) {
     res.status(500).json(err);
    }
+})
+
+//GET to render the updateTip page
+router.get('/updateTip/:id', withAuth , async (req, res) => {
+  try {
+    res.render('updateTip', {
+      logged_in: true
+    })
+  } catch (err) {
+    res.status(500).json(err);
+  }
 })
 
 // GET route to render login page

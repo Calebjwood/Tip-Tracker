@@ -33,7 +33,7 @@ router.post('/', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
-
+ 
 // PUT route to update tips
 router.put('/:id', withAuth, async (req, res) => {
     try {

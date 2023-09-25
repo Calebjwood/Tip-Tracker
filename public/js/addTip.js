@@ -1,10 +1,8 @@
 const addTipBtn = document.getElementById('entBtn');
-// const UpdateTipBtn = document.getElementById('entBtn');
 
 
 const addTipHandler = async (event) => {
   event.preventDefault();
-
   const hours = document.querySelector('#hoursWorked').value.trim();
   const tips = document.querySelector('#totalTips').value.trim();
 
@@ -16,6 +14,7 @@ const addTipHandler = async (event) => {
     });
 
     if (response.ok) {
+      console.log(response);
       document.location.replace(`/profile`);
     } else {
       alert(response.statusText);
@@ -23,11 +22,6 @@ const addTipHandler = async (event) => {
   }
 };
 
-const updateTipHandler = (event) => {
-    event.preventDefault();
-}
-
-
 
 addTipBtn.addEventListener('click', addTipHandler);
-// UpdateTipBtnTipBtn.addEventListener('click', addTipHandler);
+
