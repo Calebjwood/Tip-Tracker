@@ -38,7 +38,7 @@ router.put('/:id', withAuth, async (req, res) => {
           }
         }
       )
-      res.status(201).json(jobData)
+      res.status(201).json(jobData);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -55,11 +55,11 @@ router.delete('/:id', withAuth, async (req, res) => {
 
 
     if(!jobData){
-      res.status(400).json('No job found with this id!')
-      return
+      res.status(400).json('No job found with this id!');
+      return;
     }
 
-    res.status(201).json(jobData)
+    res.status(201).json(jobData);
   } catch (err) {
     res.status(500).json(err);
   }
