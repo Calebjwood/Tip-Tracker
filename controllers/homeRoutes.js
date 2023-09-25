@@ -36,7 +36,7 @@ router.get('/tips', async (req, res) => {
       const tips = tipData.map((tip) => tip.get({ plain: true }));
       const total = tips.reduce((acc, tip) => {
           const { hours, tips, job: { hourly_wage } } = tip;
-          acc = wageCalc.calcTotal(hours, hourly_wage, tips);
+          acc += wageCalc.calcTotal(hours, hourly_wage, tips);
           return acc;
       }, 0)
       
