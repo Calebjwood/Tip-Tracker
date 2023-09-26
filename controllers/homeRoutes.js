@@ -1,7 +1,6 @@
 const router = require('express').Router();
 
 
-const wageCalc = require('../utils/calcTotals');
 
 const { User, Job, Tip } = require('../models');
 const withAuth = require('../utils/auth');
@@ -38,7 +37,7 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/job/:id', withAuth, async (req, res) => {
   try {
     const jobData = await Job.findByPk(req.params.id, {
-      include: [{ model: Tip }],
+      include: [{ model: Tip}],
     });
 
     const job = jobData.get({ plain: true });
@@ -88,37 +87,6 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/tips', async (req, res) => {
-  // query database for tips, hours, and hourly wage then pass to totalMoney
-  try {
-      const tipData = await Tip.findAll({
-          include: [
-              {
-                  model: Job,
-                  attributes: ['hourly_wage', 'name']
-              },
 
-          ],    
-      });
-
-
-      const tips = tipData.map((tip) => tip.get({ plain: true }));
-      const total = tips.reduce((acc, tip) => {
-          const { hours, tips, job: { hourly_wage } } = tip;
-          acc += wageCalc.calcTotal(hours, hourly_wage, tips);
-          return acc;
-      }, 0)
-      
-    
-      res.render('project', {
-          tips,
-          total,
-          logged_in: req.session.logged_in
-      });
-      
-  } catch (err) {
-  res.status(500).json(err);
-}
-});
 
 module.exports = router;
