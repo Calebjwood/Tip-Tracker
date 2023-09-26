@@ -1,6 +1,11 @@
 const router = require('express').Router();
+
+
+const wageCalc = require('../utils/calcTotals');
+
 const { User, Job, Tip } = require('../models');
 const withAuth = require('../utils/auth');
+
 
 // GET route to render the homepage
 router.get('/', (req, res) => {
