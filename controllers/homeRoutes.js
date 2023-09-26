@@ -1,6 +1,10 @@
 const router = require('express').Router();
+
+
+
 const { User, Job, Tip } = require('../models');
 const withAuth = require('../utils/auth');
+
 
 // GET route to render the homepage
 router.get('/', (req, res) => {
@@ -33,7 +37,7 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/job/:id', withAuth, async (req, res) => {
   try {
     const jobData = await Job.findByPk(req.params.id, {
-      include: [{ model: Tip }],
+      include: [{ model: Tip}],
     });
 
     const job = jobData.get({ plain: true });
@@ -82,6 +86,7 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
   res.render('signup');
 });
+
 
 
 module.exports = router;

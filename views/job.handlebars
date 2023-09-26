@@ -12,6 +12,8 @@
     <h3>{{format_date tip.date}}</h3>
     <h3>Hours Worked: {{tip.hours}}</h3>
     <h3>Tips Earned: {{tip.tips}}</h3>
+    <h3>Total Income: {{calc_total tip.hours  ../hourly_wage  tip.tips}}</h3>
+    <h3>Total Hourly: {{ calc_hourly tip.hours ../hourly_wage  tip.tips }}</h3>
     <a href="/updateTip/{{tip.id}}" class="btn btn-info">Edit Tips</a>
     <button class="btn btn-sm btn-danger delete-btn" data-id="{{tip.id}}">DELETE</button>
   </div>
