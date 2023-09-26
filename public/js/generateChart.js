@@ -36,5 +36,4 @@ function generateChart(dates, incomes) {
   });
 }
 
-// Call the function
 fetchDataAndGenerateChart();
