@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Tip = require('../../models/tips');
+const Job = require('../../models/job');
 const wageCalc = require('../../utils/calcTotals');
 const withAuth = require('../../utils/auth');
 
@@ -8,6 +9,8 @@ router.get('/', (req, res) => {
     // query database for tips, hours, and hourly wage then pass to totalMoney
     res.json(wageCalc.totalMoney(2, 10, [1, 1]));
 });
+
+
 
 // GET route to see all tips
 router.get('/all', async (req, res) => {
@@ -19,6 +22,31 @@ router.get('/all', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// GET route to help generate chart
+router.get('/chart/:id', withAuth, async (req, res) => {
+  console.log("Entered route");
+  try {
+    console.log("Before fetching tipsData");
+    const tipsData = await Tip.findAll({
+      where: { job_id: req.params.id },
+      include: [{ model: Job }]
+    });
+    console.log("After fetching tipsData:", tipsData);
+
+    const dataForChart = tipsData.map(tip => ({
+      date: tip.date,
+      totalIncome: Number(tip.tips) + (Number(tip.hours) * Number(tip.job.hourly_wage))
+    }));
+    console.log("Mapped data for chart:", dataForChart);
+
+    res.status(200).json(dataForChart);
+  } catch (err) {
+    console.error("Error in route:", err);
+    res.status(500).json(err);
+  }
+});
+
 
 // POST route to create tips
 router.post('/', withAuth, async (req, res) => {
