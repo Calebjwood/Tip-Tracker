@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const Tip = require('../../models/tips');
 const Job = require('../../models/job');
-const wageCalc = require('../../utils/calcTotals');
 const withAuth = require('../../utils/auth');
 
 
