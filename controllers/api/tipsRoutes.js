@@ -57,6 +57,7 @@ router.put('/:id', withAuth, async (req, res) => {
             {
                 hours: req.body.hours,
                 tips: req.body.tips,
+                date: req.body.date
             },
             {
                 where: {

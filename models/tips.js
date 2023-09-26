@@ -28,7 +28,6 @@ Tip.init(
     date: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
     },
     job_id: {
       type: DataTypes.INTEGER,
