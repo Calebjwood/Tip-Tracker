@@ -10,9 +10,11 @@ async function fetchDataAndGenerateChart() {
 
     const data = await response.json();
 
+    data.sort((a, b) => new Date(a.date) - new Date(b.date));
+
     const dates = data.map(entry => {
       const dateObj = new Date(entry.date);
-      const month = dateObj.getMonth() + 1; // because getMonth() starts at zero >:(
+      const month = dateObj.getMonth() + 1; // because getMonth() starts at zero
       const day = dateObj.getDate();
       return `${month}/${day}`;
     });
@@ -24,6 +26,7 @@ async function fetchDataAndGenerateChart() {
       console.error(err);
   }
 }
+
 
 function generateChart(dates, incomes) {
   const ctx = document.getElementById('myChart');
