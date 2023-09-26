@@ -41,6 +41,9 @@ function generateChart(dates, incomes) {
         borderColor: 'blue',
         fill: false
       }]
+    },
+    options: {
+      responsive: true,
     }
   });
 }
