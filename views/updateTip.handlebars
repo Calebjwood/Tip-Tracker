@@ -9,21 +9,21 @@
           for="hoursWorked"
           class=" fs-4"
         >Hours Worked</label>
-        <input type="number" class="form-control" id="hoursWorked" />
+        <input type="number" class="form-control" id="hoursWorked" value="{{hours}}"/>
       </div>
       <div>
         <label
           for="totalTips"
           class=" fs-4"
         >Total Tips</label>
-        <input type="number" class="form-control" id="totalTips" />
+        <input type="number" class="form-control" id="totalTips" value="{{tips}}"/>
       </div>
       <div class="form-group">
         <label
           for="date"
           class="fs-4"
         >Date</label>
-        <input type="date" class="form-control" id="date" />
+        <input type="date" class="form-control" id="date" value="{{date}}"/>
       </div>
       <button id="editBtn" type="submit" class="btn btn-primary" data-job_id={{job_id}}>Enter</button>
     </form>
