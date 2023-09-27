@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
   res.render('homepage', {
     logged_in: req.session.logged_in
   })
-})
+});
 
 // GET route to render profile page
 router.get('/profile', withAuth, async (req, res) => {
@@ -37,7 +37,7 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/job/:id', withAuth, async (req, res) => {
   try {
     const jobData = await Job.findByPk(req.params.id, {
-      include: [{ model: Tip}],
+      include: [{ model: Tip }],
     });
 
     const job = jobData.get({ plain: true });
@@ -54,7 +54,7 @@ router.get('/job/:id', withAuth, async (req, res) => {
   }
 });
 
-//GET to render addTip page 
+// GET to render addTip page 
 router.get('/addTip', withAuth, async (req, res) => {
    try {
     res.render('addTip', {
@@ -63,19 +63,27 @@ router.get('/addTip', withAuth, async (req, res) => {
    } catch (err) {
     res.status(500).json(err);
    }
-})
+});
 
-//GET to render the updateTip page
-router.get('/updateTip/:id', withAuth , async (req, res) => {
+// GET to render the updateTip page
+router.get('/updateTip/:id', withAuth, async (req, res) => {
   try {
+    const tipData = await Tip.findByPk(req.params.id);
+
+    const tip = tipData.get({ plain: true });
+
+    const dateObj = new Date(tip.date);
+    tip.date = dateObj.toISOString().split('T')[0];
+
     res.render('updateTip', {
+      ...tip,
       job_id: req.session.job_id,
       logged_in: true
     })
   } catch (err) {
     res.status(500).json(err);
   }
-})
+});
 
 // GET route to render login page
 router.get('/login', (req, res) => {
