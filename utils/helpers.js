@@ -1,7 +1,7 @@
 const format_date = (date) => {
   const weekday = date.toLocaleDateString('en-US', { weekday: 'long' });
   const month = date.toLocaleDateString('en-US', { month: 'long' });
-  const day = date.getDate();
+  const day = date.getDate() + 1;
   const year = date.getFullYear();
 
   return `${weekday}, ${month} ${day} ${year}`;
