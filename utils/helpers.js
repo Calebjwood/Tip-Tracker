@@ -1,7 +1,12 @@
 const format_date = (date) => {
-  // Format date as MM/DD/YYYY
-  return date.toLocaleDateString();
+  const weekday = date.toLocaleDateString('en-US', { weekday: 'long' });
+  const month = date.toLocaleDateString('en-US', { month: 'long' });
+  const day = date.getDate();
+  const year = date.getFullYear();
+
+  return `${weekday}, ${month} ${day} ${year}`;
 }
+
 const format_amount = (amount) => {
   // format large numbers with commas
   return parseInt(amount).toLocaleString();
