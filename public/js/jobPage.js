@@ -9,7 +9,7 @@ const deleteJobHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        window.location.reload();
       } else {
         console.log(response);
         alert('Failed to delete job');
