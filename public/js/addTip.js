@@ -18,7 +18,7 @@ const addTipHandler = async (event) => {
 
     if (response.ok) {
       console.log(response);
-      document.location.replace(`/job/${job_id}`);
+      // document.location.replace(`/job/${job_id}`);
     } else {
       console.log(response);
       alert(response.statusText);
