@@ -47,7 +47,8 @@ router.get('/job/:id', withAuth, async (req, res) => {
 
     res.render('job', {
       ...job,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      job_id: req.params.id
     });
   } catch (err) {
     res.status(500).json(err);
@@ -55,10 +56,10 @@ router.get('/job/:id', withAuth, async (req, res) => {
 });
 
 // GET to render addTip page 
-router.get('/addTip', withAuth, async (req, res) => {
+router.get('/addTip/:id', withAuth, async (req, res) => {
    try {
     res.render('addTip', {
-      job_id: req.session.job_id
+      job_id: req.params.id
     })
    } catch (err) {
     res.status(500).json(err);
