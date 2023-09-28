@@ -10,7 +10,7 @@ const addTipHandler = async (event) => {
   console.log(job_id);
   if (hours && tips && date) {
     console.log('fired');
-    const response = await fetch('/api/tips/', {
+    const response = await fetch(`/api/tips/${job_id}`, {
       method: 'POST',
       body: JSON.stringify({ hours, tips, date }),
       headers: { 'Content-Type': 'application/json' },
@@ -18,7 +18,7 @@ const addTipHandler = async (event) => {
 
     if (response.ok) {
       console.log(response);
-      // document.location.replace(`/job/${job_id}`);
+      document.location.replace(`/job/${job_id}`);
     } else {
       console.log(response);
       alert(response.statusText);
