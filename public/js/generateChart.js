@@ -15,7 +15,7 @@ async function fetchDataAndGenerateChart() {
     const dates = data.map(entry => {
       const dateObj = new Date(entry.date);
       const month = dateObj.getMonth() + 1; // because getMonth() starts at zero
-      const day = dateObj.getDate();
+      const day = dateObj.getDate() + 1;
       return `${month}/${day}`;
     });
     
