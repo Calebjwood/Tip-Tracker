@@ -69,7 +69,7 @@ router.get('/addTip/:id', withAuth, async (req, res) => {
 // GET to render the updateTip page
 router.get('/updateTip/:id', withAuth, async (req, res) => {
   try {
-    const tipData = await Tip.findByPk(req.params.id);
+    const tipData = await Tip.findByPk(req.params.id)
 
     const tip = tipData.get({ plain: true });
 
@@ -78,7 +78,6 @@ router.get('/updateTip/:id', withAuth, async (req, res) => {
 
     res.render('updateTip', {
       ...tip,
-      job_id: req.session.job_id,
       logged_in: true
     })
   } catch (err) {
