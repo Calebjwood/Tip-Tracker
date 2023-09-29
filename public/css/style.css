@@ -1,10 +1,11 @@
 
 body {
-    background-color:#ff0000;
+    background-color: rgb(64, 64, 64);
     min-height: 100vh;
     margin: 0;
     padding: 0;
     font-family: '','', ;
+    color: white;
 }
 
 .headhero {
@@ -13,11 +14,11 @@ body {
 
 .headhero h1 {
     font-size: 3rem;
-    color: black;
+    color: white;
 }
 
 .headhero p {
-    color: black;
+    color: white;
 }
 
 #columns {
