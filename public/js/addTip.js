@@ -7,9 +7,10 @@ const addTipHandler = async (event) => {
   const tips = document.querySelector('#totalTips').value.trim();
   const date = document.querySelector('#date').value.trim();
   const job_id = addTipBtn.dataset.job_id;
+  console.log(job_id);
   if (hours && tips && date) {
     console.log('fired');
-    const response = await fetch('/api/tips/', {
+    const response = await fetch(`/api/tips/${job_id}`, {
       method: 'POST',
       body: JSON.stringify({ hours, tips, date }),
       headers: { 'Content-Type': 'application/json' },

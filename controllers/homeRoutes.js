@@ -59,7 +59,8 @@ router.get('/job/:id', withAuth, async (req, res) => {
 router.get('/addTip/:id', withAuth, async (req, res) => {
    try {
     res.render('addTip', {
-      job_id: req.params.id
+      job_id: req.params.id,
+      logged_in: req.session.logged_in
     })
    } catch (err) {
     res.status(500).json(err);
@@ -69,7 +70,7 @@ router.get('/addTip/:id', withAuth, async (req, res) => {
 // GET to render the updateTip page
 router.get('/updateTip/:id', withAuth, async (req, res) => {
   try {
-    const tipData = await Tip.findByPk(req.params.id);
+    const tipData = await Tip.findByPk(req.params.id)
 
     const tip = tipData.get({ plain: true });
 
@@ -78,7 +79,6 @@ router.get('/updateTip/:id', withAuth, async (req, res) => {
 
     res.render('updateTip', {
       ...tip,
-      job_id: req.session.job_id,
       logged_in: true
     })
   } catch (err) {

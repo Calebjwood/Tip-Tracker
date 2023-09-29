@@ -36,11 +36,11 @@ router.get('/chart/:id', withAuth, async (req, res) => {
 });
 
 // POST route to create tips
-router.post('/', withAuth, async (req, res) => {
+router.post('/:id', withAuth, async (req, res) => {
     try {
         const newTips = await Tip.create({
             ...req.body,
-            job_id: req.session.job_id,
+            job_id: req.params.id,
         });
 
         res.status(200).json(newTips);
@@ -61,7 +61,6 @@ router.put('/:id', withAuth, async (req, res) => {
             {
                 where: {
                     id: req.params.id,
-                    // user_id: req.session.user_id, -- include this when we add user_id to Tips model?
                 },
             },
         );
