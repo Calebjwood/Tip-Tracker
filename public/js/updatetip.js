@@ -2,22 +2,22 @@ const UpdateTipBtn = document.getElementById('editBtn');
 
 const updateTipHandler = async (event) => {
   event.preventDefault();
-  
-  const hours = document.querySelector('#hoursWorked').value.trim();
-  const tips = document.querySelector('#totalTips').value.trim();
-  const date = document.querySelector('#date').value.trim();
-  const tip_id = document.location.pathname.split('/')[2]
-  const job_id = UpdateTipBtn.dataset.job_id
+  const hours = document.querySelector('#updHoursWorked').value.trim();
+  const tips = document.querySelector('#updTotalTips').value.trim();
+  const date = document.querySelector('#updDate').value.trim();
+
+  const tip_id = UpdateTipBtn.dataset.tip_id
     
+  console.log(hours, tips, date); 
   if (hours && tips && date) {
     const response = await fetch(`/api/tips/${tip_id}`, {
       method: 'PUT',
       body: JSON.stringify({ hours, tips, date }),
       headers: { 'Content-Type': 'application/json' },
     });
-  
+    
     if (response.ok) {
-      document.location.replace(`/job/${job_id}`);
+      window.location.reload();
     } else {
       console.log(response);
       alert(response.statusText);

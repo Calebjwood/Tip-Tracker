@@ -1,28 +1,89 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6 text-center">
-            <canvas id="myChart"></canvas>
-        </div>
+
+<div class="container text-center job-columns">
+  <div class="row">
+    <div class="col">
+      <canvas id="myChart"></canvas>
     </div>
-</div>
+    <div class="col">
+      <div class="dropdown-center">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-auto-close="outside"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Previous Tips
+        </button>
 
-<div class="container-fluid d-flex justify-content-center gap-5 mt-4">
-  <a href="/addTip" class="btn btn-primary">Add tips</a>
-</div>
+        <ul class="dropdown-menu">
+          {{#each tips as |tip|}}
+          <li>{{format_date tip.date}}</li>
+          <li>Hours Worked: {{tip.hours}}</li>
+          <li>Tips Earned: {{tip.tips}}</li>
+          <li>Total Income: {{calc_total tip.hours ../hourly_wage tip.tips}}</li>
+          <li>Total Hourly: {{ calc_hourly tip.hours ../hourly_wage tip.tips }}</li>
 
-{{#each tips as |tip|}}
-<div class="container-fluid">
-  <div class="border border-secondary">
-    <h3>{{format_date tip.date}}</h3>
-    <h3>Hours Worked: {{tip.hours}}</h3>
-    <h3>Tips Earned: {{tip.tips}}</h3>
-    <h3>Total Income: {{calc_total tip.hours  ../hourly_wage  tip.tips}}</h3>
-    <h3>Total Hourly: {{ calc_hourly tip.hours ../hourly_wage  tip.tips }}</h3>
-    <a href="/updateTip/{{tip.id}}" class="btn btn-info">Edit Tips</a>
-    <button class="btn btn-sm btn-danger delete-btn" data-id="{{tip.id}}">DELETE</button>
+
+          <div class="div-inline">
+            <div class="dropdown">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false" data-bs-auto-close="outside">
+                Edit Tip
+              </button>
+              <form class="dropdown-menu p-4" id="newTipForm">
+                <div class="form-floating">
+                  <input type="number" class="form-control" id="updHoursWorked" value="{{hours}}" />
+                  <label for="hoursWorked">Hours Worked</label>
+                </div>
+                <div class="form-floating">
+                  <input type="number" class="form-control" id="updTotalTips" value="{{tips}}" />
+                  <label for="totalTips">Total Tips</label>
+                </div>
+                <div class="form-floating">
+                  <input type="date" class="form-control" id="updDate" value="{{format_date_form tip.date}}" />
+                  <label for="date">Date</label>
+                </div>
+                <button class="btn btn-primary w-100 py-2" id="editBtn" type="submit"
+                  data-tip_id={{tip.id}}>Enter</button>
+              </form>
+            </div>
+
+          </div>
+          <li><button class="dropdown-item  btn-danger delete-btn" data-id="{{tip.id}}">DELETE</button>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          {{/each}}
+        </ul>
+
+      </div>
+    </div>
+    <div class="col">
+      <div class="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+          data-bs-auto-close="outside">
+          Add New Tip
+        </button>
+        <form class="dropdown-menu p-4" id="newTipForm">
+          <div class="form-floating">
+            <input type="number" class="form-control" id="hoursWorked" />
+            <label for="hoursWorked"> Hours Worked</label>
+          </div>
+          <div class="form-floating">
+            <input type="number" class="form-control" id="totalTips" />
+            <label for="totalTips">Total Tips</label>
+          </div>
+          <div class="form-floating">
+            <input type="date" class="form-control" id="date" />
+            <label for="date">Date</label>
+          </div>
+          <button class="btn btn-primary w-100 py-2" id="entBtn" type="submit" data-job_id={{job_id}}>Enter</button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
-{{/each}}
 
+
+<script src="/js/addTip.js"></script>
+<script src="/js/updatetip.js"></script>
 <script src="/js/generateChart.js"></script>
 <script src="/js/jobPage.js"></script>
+
