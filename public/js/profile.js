@@ -39,7 +39,7 @@ const deleteJobHandler = async (event) => {
   }
 };
 
-const createBtn = document.querySelector('.new-job-form');
+const createBtn = document.querySelector('#new-job-form');
 
 createBtn.addEventListener('submit', newJobHandler);
 

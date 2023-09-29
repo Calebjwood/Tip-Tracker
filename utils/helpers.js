@@ -6,6 +6,10 @@ const format_date = (date) => {
 
   return `${weekday}, ${month} ${day} ${year}`;
 }
+const format_date_form = (date) => {
+  // Format date as YYYY-MM-DD
+  return date.toISOString().split("T")[0];
+}
 
 const format_amount = (amount) => {
   // format large numbers with commas
@@ -20,6 +24,5 @@ const calc_hourly = (hours, wage, tips) => {
   let result = calc_total(hours, wage, tips) / hours;
   return Number(result.toFixed(2));  // Convert result to fixed 2 decimal places
 }
-
-module.exports = { format_date, format_amount, calc_total, calc_hourly };
+module.exports = { format_date, format_amount, calc_total, calc_hourly, format_date_form };
 

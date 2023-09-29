@@ -1,59 +1,65 @@
 
 body {
-    background-color: rgb(64, 64, 64);
+    background-color:white;
     min-height: 100vh;
     margin: 0;
     padding: 0;
     font-family: '','', ;
-    color: white;
 }
 
-.headhero {
-    background: linear-gradient(rgb(255, 0, 0), rgb(0, 0, 0));
+
+
+#chart-row {
+    display: flex;
+    justify-content: center;
+
 }
 
-.headhero h1 {
-    font-size: 3rem;
-    color: white;
+#login-form {
+    display: block;
+    max-width: 400px;
+    width: 100%;
+    margin: 15vh auto;
+    border: 1px solid rgb(212, 201, 201);
+    padding: 4em 2em 4em 2em;
+    border-radius: 8px;
 }
 
-.headhero p {
-    color: white;
+#signup-form {
+    display: block;
+    max-width: 400px;
+    width: 100%;
+    margin: 15vh auto;
+    border: 1px solid rgb(212, 201, 201);
+    padding: 4em 2em 4em 2em;
+    border-radius: 8px;
 }
 
-#columns {
-    padding-top: 4rem;
+/* #newTipForm {
+    display: block;
+    max-width: 400px;
+    width: 100%;
+    margin: 15vh auto;
+    border: 1px solid rgb(212, 201, 201);
+    padding: 4em 2em 4em 2em;
+    border-radius: 8px;
+} */
+
+#signup-link {
+    margin-top: 1em;
 }
 
-.longbutton {
-    width:13rem;
-    background: linear-gradient(rgb(255, 0, 0), rgb(0, 0, 0));
-    margin-bottom: 2rem;
-    color: rgb(225, 255, 0);
-    font-weight: 600;
+
+.div-inline {
+    display: inline-flex;
+    padding-right: 1em;
+    margin-bottom: 1em;
 }
 
-.button:hover {
-    color: white;
+.job-drops {
+    margin-top: 10vh;
 }
 
-.fa-magnifying-glass:hover {
-    color: white !important;
-    background-image:linear-gradient(rgb(255, 0, 0), rgb(0, 0, 0));
-}
-
-tr, th, td {
-    padding-top: 10px;
-    padding-bottom: 0px;
-    padding-left: 30px;
-    padding-right: 40px;
-}
-
-th {
-    font-size: 1.3rem;
-    background-color: #0602ff;
-}
-
-thead {
-    border-bottom: 1px solid black;
+.job-columns {
+    margin-top: 10vh;
 }

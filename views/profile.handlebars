@@ -1,44 +1,44 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div>
-
-<div class="row mt-4">
-  {{#if jobs.length}}
-  <div class="col-md-6 job-list">
-    <h3>Current Jobs:</h3>
-
-    {{#each jobs as |job|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/job/{{job.id}}">{{job.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger delete-btn" data-id="{{job.id}}">DELETE</button>
-      </div>
+<div class="container text-center job-drops">
+<div class="row justify-content-center row align-items-start">
+  <div class="col-4">
+    {{#if jobs.length}}
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Current Jobs
+      </button>
+      <ul class="dropdown-menu">
+        {{#each jobs as |job|}}
+        <li>
+          <div class="div-inline">
+            <a class="dropdown-item" href="/job/{{job.id}}">{{job.name}}</a>
+            <button class="btn btn-sm btn-danger delete-btn" data-id="{{job.id}}">DELETE</button>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
     </div>
-    {{/each}}
+    {{/if}}
   </div>
-  {{/if}}
-
-  <div class="col-md-6 border border-black">
-    <h3>Job</h3>
-
-    <form class="new-job-form">
-      <div class="form-group">
-        <label for="job-name">Job Name:</label>
-        <input type="text" class="form-control" id="job-name" name="job-name" />
-      </div>
-      <div class="form-group">
-        <label for="job-wage">Hourly Wage:</label>
-        <input type="number" step="0.01" min="0" class="form-control" id="job-wage" name="job-wage"></input>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
+  <div class="col-4">
+    <div class="dropdown">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+        data-bs-auto-close="outside">
+        Add a Job
+      </button>
+      <form class="dropdown-menu p-4" id="new-job-form">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="job-name">
+          <label for="floatingInput">Job Name:</label>
+        </div>
+        <div class="form-floating">
+          <input type="number" class="form-control" id="job-wage">
+          <label for="floatingInput">Hourly Wage:</label>
+        </div>
+        <button class="btn btn-primary w-100 py-2" id="signup-btn" type="submit">Add</button>
+      </form>
+    </div>
   </div>
 </div>
+
 
 <script src="/js/profile.js"></script>

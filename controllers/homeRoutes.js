@@ -9,7 +9,7 @@ const withAuth = require('../utils/auth');
 // GET route to render the homepage
 router.get('/', (req, res) => {
   
-  res.render('homepage', {
+  res.render('login', {
     logged_in: req.session.logged_in
   })
 });
