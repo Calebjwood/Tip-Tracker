@@ -44,6 +44,24 @@ function generateChart(dates, incomes) {
     },
     options: {
       responsive: true,
+      scales: {
+        x: {
+          ticks: {
+            color: 'white'
+          },
+          grid: {
+            color: 'rgba(255, 255, 255, 0.1)'
+          }
+        },
+        y: {
+          ticks: {
+            color: 'white'
+          },
+          grid: {
+            color: 'rgba(255, 255, 255, 0.1)' 
+          }
+        }
+      }
     }
   });
 }
