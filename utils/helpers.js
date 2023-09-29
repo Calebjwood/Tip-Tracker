@@ -10,6 +10,7 @@ const format_date_form = (date) => {
   // Format date as YYYY-MM-DD
   return date.toISOString().split("T")[0];
 }
+
 const format_amount = (amount) => {
   // format large numbers with commas
   return parseInt(amount).toLocaleString();
