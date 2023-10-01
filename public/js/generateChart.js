@@ -47,7 +47,7 @@ function generateChart(dates, incomes) {
       scales: {
         x: {
           ticks: {
-            color: 'white'
+            color: 'black'
           },
           grid: {
             color: 'rgba(255, 255, 255, 0.1)'
@@ -55,7 +55,7 @@ function generateChart(dates, incomes) {
         },
         y: {
           ticks: {
-            color: 'white'
+            color: 'black'
           },
           grid: {
             color: 'rgba(255, 255, 255, 0.1)' 

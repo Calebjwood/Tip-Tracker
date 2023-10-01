@@ -14,7 +14,7 @@
         </button>
         <ul class="dropdown-menu">
           {{#each tips as |tip|}}
-          <li>{{format_date tip.date}}</li>
+          <li>{{dropDown_format tip.date}}</li>
           <li>Hours Worked: {{tip.hours}}</li>
           <li>Tips Earned: {{tip.tips}}</li>
           <li>Total Income: {{calc_total tip.hours ../hourly_wage tip.tips}}</li>
@@ -44,7 +44,7 @@
             </div>
 
           </div>
-          <li><button class="dropdown-item  btn-danger delete-btn" data-id="{{tip.id}}">DELETE</button>
+          <li><button class="dropdown-item btn-sm  btn-danger delete-btn" data-id="{{tip.id}}">DELETE</button>
           </li>
           <li>
             <hr class="dropdown-divider">
